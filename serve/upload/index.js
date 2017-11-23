@@ -1,5 +1,3 @@
-const { MD5 } = require('../../src/libs/md5')
-const { IncomingForm } = require('formidable')
 const path = require('path')
 const { existsSync, readFileSync, writeFileSync, appendFileSync } = require('fs')
 const uploadDir = path.join(__dirname, '../../uploadDir')

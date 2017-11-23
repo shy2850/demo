@@ -12,7 +12,6 @@ $(() => {
     input.on('change', e => {
         let file = e.target.files[0]
         if (file) {
-            BTN.begin.attr({disabled: true})
             fileName.text(file.name)
             let reader = new FileReader()
             reader.onload = (e) => {
@@ -25,9 +24,7 @@ $(() => {
                     progressBar.attr({
                         value: loaded * 100 / file.size
                     })
-                    if (file.size !== loaded) {
-                        BTN.begin.attr({ disabled: false })
-                    } else {
+                    if (file.size === loaded) {
                         alert('complete!')
                     }
                     fileInfo = {
