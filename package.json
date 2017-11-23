@@ -1,0 +1,29 @@
+{
+  "name": "f2e-demo",
+  "version": "0.1.0",
+  "description": "demo create by f2e-server",
+  "main": "index.js",
+  "scripts": {
+    "start": "f2e start",
+    "install": "rm -rf fonts & cp -rf ./node_modules/font-awesome/fonts ./ & rm -rf uploadDir & mkdir uploadDir",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shy2850/demo.git"
+  },
+  "author": "shy2850",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shy2850/demo/issues"
+  },
+  "homepage": "https://github.com/shy2850/demo#readme",
+  "dependencies": {
+    "bulma": "^0.6.1",
+    "f2e-serve": "^0.1.0",
+    "f2e-server": "^2.7.1",
+    "font-awesome": "^4.7.0",
+    "formidable": "^1.1.1",
+    "wfquery": "^0.7.0"
+  }
+}
