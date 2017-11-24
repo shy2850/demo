@@ -13,6 +13,7 @@ $(() => {
         let file = e.target.files[0]
         if (file) {
             fileName.text(file.name)
+            BTN.begin.hide()
             let reader = new FileReader()
             reader.onload = (e) => {
                 const buffer = e.currentTarget.result
@@ -26,6 +27,8 @@ $(() => {
                     })
                     if (file.size === loaded) {
                         alert('complete!')
+                    } else {
+                        BTN.begin.show()
                     }
                     fileInfo = {
                         file,
@@ -44,6 +47,7 @@ $(() => {
         xhr = new XMLHttpRequest()
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
+                BTN.begin.hide()
                 alert('complete!')
             }
         }
