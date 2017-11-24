@@ -4,16 +4,20 @@ $(() => {
     const input = $('.file-input')
     const fileName = $('.file-name')
     const BTN = {
+        hide() { $('.show-info-item').hide() },
+        show() { $('.show-info-item').show() },
         begin: $('.btn-begin'),
         pause: $('.btn-pause')
     }
+    BTN.hide()
     let fileInfo = {}
     let xhr
     input.on('change', e => {
         let file = e.target.files[0]
         if (file) {
-            fileName.text(file.name)
-            BTN.begin.hide()
+            // change时修改显示文件名以及服务端验证进度
+            fileName.html('<i class="fa fa-spinner fa-spin fa-1x fa-fw"></i>' + file.name)
+            BTN.hide()
             let reader = new FileReader()
             reader.onload = (e) => {
                 const buffer = e.currentTarget.result
@@ -25,10 +29,11 @@ $(() => {
                     progressBar.attr({
                         value: loaded * 100 / file.size
                     })
+                    fileName.html(file.name)
                     if (file.size === loaded) {
                         alert('complete!')
                     } else {
-                        BTN.begin.show()
+                        BTN.show()
                     }
                     fileInfo = {
                         file,
@@ -45,12 +50,20 @@ $(() => {
     const uploadFile = () => {
         const { file, buffer, md5 } = fileInfo
         xhr = new XMLHttpRequest()
+        fileName.html('<i class="fa fa-spinner fa-spin fa-1x fa-fw"></i>' + file.name)
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                BTN.begin.hide()
-                alert('complete!')
+                fileName.html(file.name)
+                BTN.hide()
+                const res = JSON.parse(xhr.responseText)
+                if (res.error) {
+                    alert(res.error)
+                } else {
+                    alert('complete!')
+                }
             }
         }
+        
         xhr.upload.addEventListener('progress', e => fetch(URL + '?' + md5)
             .then(res => res.json())
             .then(({loaded}) => {
