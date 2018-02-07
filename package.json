@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/shy2850/demo#readme",
   "dependencies": {
-    "bulma": "^0.6.1",
+    "bulma": "^0.6.2",
     "f2e-serve": "^0.1.0",
-    "f2e-server": "^2.7.1",
+    "f2e-server": "^2.8.1",
     "font-awesome": "^4.7.0",
-    "wfquery": "^0.7.0"
+    "wfquery": "^0.7.2"
   }
 }

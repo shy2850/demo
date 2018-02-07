@@ -64,3 +64,4 @@ fonts
 uploadDir
 
 .DS_Store
+.vscode

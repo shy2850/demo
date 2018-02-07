@@ -1,0 +1,21 @@
+.fullpage {
+    height: 100vh;
+    overflow: hidden;
+    > .inner {
+        height: 100vh;
+        transition: transform .5s ease-in;
+        transform: translateY(0);
+    }
+    .section {
+        height: 100vh;
+        &:nth-child(3n + 1) {
+            background: #fbb;
+        }
+        &:nth-child(3n + 2) {
+            background: #bfb;
+        }
+        &:nth-child(3n) {
+            background: #bbf;
+        }
+    }
+}

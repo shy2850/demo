@@ -6,8 +6,11 @@ const {
         ServerSent
     }
 } = require('f2e-serve')
+const stars = require('./stars/store')
 
 const route = new Route()
+route.on('stars.get', JsonpOut(stars.get))
+route.on('stars.set', JsonpOut(stars.set))
 
 exports.onRoute = (pathname, req, resp, memory) => {
     try {
