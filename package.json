@@ -20,9 +20,12 @@
   "homepage": "https://github.com/shy2850/demo#readme",
   "dependencies": {
     "bulma": "^0.6.2",
-    "f2e-serve": "^0.1.0",
-    "f2e-server": "^2.8.1",
+    "f2e-serve": "^0.1.8",
+    "f2e-server": "^2.10.2",
     "font-awesome": "^4.7.0",
+    "memory-tree": "^0.6.11",
+    "source-map": "^0.7.3",
+    "source-map-resolve": "^0.5.2",
     "wfquery": "^0.7.2"
   }
 }

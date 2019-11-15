@@ -44,8 +44,8 @@ exports.commit_sourcemap_path = (req, resp) => {
         sourceMapResolve.resolve(code, pathname, function (p, cb) {
             getInfo(url.resolve(href, p)).then(body => cb(null, body)).catch(cb)
         }, function (e, result) {
-            if (e) {
-                reject()
+            if (e || !result) {
+                reject(e)
             } else {
                 const { sourcesResolved, sourcesContent } = result
                 sourcesResolved.map((pathname, i) => {

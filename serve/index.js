@@ -7,10 +7,12 @@ const {
     }
 } = require('f2e-serve')
 const stars = require('./stars/store')
+const { commit_sourcemap_path } = require('./sourcemap')
 
 const route = new Route()
 route.on('stars.get', JsonpOut(stars.get))
 route.on('stars.set', JsonpOut(stars.set))
+route.on('commit_sourcemap_path', commit_sourcemap_path)
 
 exports.onRoute = (pathname, req, resp, memory) => {
     try {
